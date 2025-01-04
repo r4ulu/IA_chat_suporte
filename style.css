@@ -20,12 +20,11 @@ body {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 90vh; /* Ajuste para ocupar 90% da altura da tela */
+    height: 100vh; /* Agora ocupa 100% da altura da tela */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 /* Cabeçalho do chat com título e seletor de CMS */
@@ -64,7 +63,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: calc(100% - 90px); /* Ajusta a altura para o espaço restante */
+    overflow-y: scroll;
+    padding-bottom: 60px; /* Espaço para o footer */
 }
 
 /* Rodapé do chat com o campo de texto e botão de envio */
