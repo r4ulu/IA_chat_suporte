@@ -38,6 +38,10 @@ body {
     align-items: center;
     border-radius: 8px 8px 0 0;
     font-size: 18px;
+    position: sticky;
+    top: 0; /* Fixa o cabeçalho no topo */
+    z-index: 10;
+    width: 100%;
 }
 
 /* Estilo do seletor de CMS */
@@ -60,6 +64,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: calc(100% - 90px); /* Ajusta a altura para o espaço restante */
 }
 
 /* Rodapé do chat com o campo de texto e botão de envio */
@@ -71,6 +76,10 @@ body {
     border-radius: 0 0 8px 8px;
     border-top: 2px solid #f0f0f5;
     gap: 8px;
+    position: sticky;
+    bottom: 0; /* Fixa o rodapé na parte inferior */
+    z-index: 10;
+    width: 100%;
 }
 
 /* Campo de texto do usuário */
