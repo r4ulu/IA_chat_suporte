@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Estilo do body, ajustando o layout para ocupar toda a tela */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f5;
@@ -12,21 +13,22 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
 }
 
+/* Container principal do chat */
 .chat-container {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 80vh; /* Limitar a altura da caixa do chat */
-    display: flex;
-    flex-direction: column;
+    height: 90vh; /* Ajuste para ocupar 90% da altura da tela */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 
+/* Cabeçalho do chat com título e seletor de CMS */
 .chat-header {
     background-color: #6200ea;
     color: white;
@@ -38,6 +40,7 @@ body {
     font-size: 18px;
 }
 
+/* Estilo do seletor de CMS */
 .chat-header select {
     padding: 8px;
     font-size: 14px;
@@ -48,16 +51,18 @@ body {
     cursor: pointer;
 }
 
+/* Caixa de mensagens com rolagem automática */
 .chat-box {
-    flex-grow: 1;  /* A área das mensagens vai crescer para ocupar o espaço restante */
+    flex-grow: 1;
     padding: 16px;
-    overflow-y: auto;  /* Torna a área de mensagens rolável */
+    overflow-y: auto; /* Permite rolagem vertical */
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* Rodapé do chat com o campo de texto e botão de envio */
 .chat-footer {
     display: flex;
     align-items: center;
@@ -68,6 +73,7 @@ body {
     gap: 8px;
 }
 
+/* Campo de texto do usuário */
 #user-input {
     flex-grow: 1;
     padding: 8px;
@@ -77,10 +83,12 @@ body {
     transition: border-color 0.3s;
 }
 
+/* Efeito de foco no campo de texto */
 #user-input:focus {
     border-color: #6200ea;
 }
 
+/* Botão de envio */
 #send-button {
     padding: 8px 16px;
     background-color: #6200ea;
@@ -92,10 +100,12 @@ body {
     transition: background-color 0.3s;
 }
 
+/* Efeito hover no botão de envio */
 #send-button:hover {
     background-color: #3700b3;
 }
 
+/* Estilo do spinner de carregamento */
 #loading-spinner {
     position: fixed;
     top: 50%;
@@ -113,11 +123,13 @@ body {
     animation: spin 2s linear infinite;
 }
 
+/* Animação do spinner */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+/* Estilo das mensagens do usuário e do bot */
 .user, .bot {
     padding: 12px;
     border-radius: 8px;
@@ -137,6 +149,7 @@ body {
     border-top-left-radius: 0;
 }
 
+/* Animação de fade-in nas mensagens */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -151,21 +164,22 @@ body {
 /* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
     .chat-container {
-        height: 90vh; /* Ajustando para usar 90% da altura da tela */
-        width: 95%;
+        height: 100vh; /* Agora ocupa 100% da altura da tela */
+        width: 100%; /* Largura 100% da tela no celular */
+    }
+
+    /* Ajuste no tamanho do input e botão no celular */
+    #user-input {
+        font-size: 12px;
+    }
+
+    #send-button {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 
     .chat-header select {
         font-size: 12px;
         padding: 6px;
-    }
-
-    #user-input {
-        font-size: 14px;
-    }
-
-    #send-button {
-        font-size: 14px;
-        padding: 10px 16px;
     }
 }
