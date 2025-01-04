@@ -148,9 +148,25 @@ body {
     }
 }
 
+/* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
     .chat-container {
         height: 90vh;
         width: 95%;
+    }
+
+    /* Ajustando os campos de entrada e botão */
+    #user-input {
+        font-size: 12px;
+    }
+
+    #send-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .chat-header select {
+        font-size: 12px;
+        padding: 6px;
     }
 }
