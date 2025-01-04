@@ -9,22 +9,22 @@ body {
     background-color: #f0f0f5;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     height: 100vh;
-    overflow: hidden;  /* Evita rolagem adicional */
     margin: 0;
+    overflow: hidden;
 }
 
 .chat-container {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 100vh;  /* Garantir que ocupe a tela inteira */
+    height: 100%; /* Ajustando para ocupar toda a altura */
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;  /* Impede rolagem dentro do container */
+    overflow: hidden;
 }
 
 .chat-header {
@@ -34,8 +34,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
     border-radius: 8px 8px 0 0;
+    font-size: 18px;
 }
 
 .chat-header select {
@@ -56,8 +56,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 80px;  /* Deixa espaço para o footer */
-    overflow-wrap: break-word;
 }
 
 .chat-footer {
@@ -68,12 +66,8 @@ body {
     border-radius: 0 0 8px 8px;
     border-top: 2px solid #f0f0f5;
     gap: 8px;
-    position: fixed;  /* Fixa o footer na parte inferior */
+    position: sticky;
     bottom: 0;
-    width: 100%;
-    background: white;
-    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 100;
 }
 
 #user-input {
@@ -156,29 +150,31 @@ body {
     }
 }
 
-/* Ajustes para dispositivos móveis */
+/* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
     .chat-container {
-        height: 100vh; /* Ocupa toda a tela */
-        width: 100%;
-    }
-
-    .chat-box {
-        margin-bottom: 80px;  /* Deixa espaço suficiente para o footer */
+        height: 100%; /* Ocupa a tela inteira */
+        width: 95%;
     }
 
     .chat-footer {
-        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
     }
 
+    /* Ajustando os campos de entrada e botão */
     #user-input {
-        font-size: 16px;  /* Tamanho do texto do input no celular */
-        padding: 10px;  /* Maior área clicável */
-        margin-bottom: 8px;  /* Evita sobrepor o campo */
+        font-size: 14px;
     }
 
     #send-button {
-        font-size: 16px;
-        padding: 8px 16px;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .chat-header select {
+        font-size: 12px;
+        padding: 6px;
     }
 }
