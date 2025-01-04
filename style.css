@@ -12,14 +12,14 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Garante que a rolagem do corpo seja controlada */
+    overflow: hidden; /* Impede rolagem adicional */
 }
 
 .chat-container {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 80vh;
+    height: 100vh; /* Ocupa toda a altura da tela */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -58,7 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 56px; /* Ajuste para evitar que a área de digitação seja coberta */
+    margin-bottom: 56px; /* Previne a área de digitação ser coberta */
 }
 
 .chat-footer {
@@ -81,6 +81,7 @@ body {
     border: 1px solid #ddd;
     font-size: 14px;
     transition: border-color 0.3s;
+    margin-right: 8px; /* Aumenta o espaçamento entre input e botão */
 }
 
 #user-input:focus {
@@ -157,12 +158,14 @@ body {
 /* Ajustes para telas menores */
 @media (max-width: 600px) {
     .chat-container {
-        height: 90vh;
-        width: 95%;
+        height: 100vh; /* Garante que ocupe toda a altura da tela */
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
-    
-    /* Ajusta o tamanho da área de digitação */
+
+    /* Ajusta a área de digitação e a rolagem */
     .chat-box {
-        margin-bottom: 100px; /* Aumenta a área disponível para a caixa de texto */
+        margin-bottom: 100px; /* Maior espaço para o input e botão não ficarem sobre o teclado */
     }
 }
