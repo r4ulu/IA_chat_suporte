@@ -9,7 +9,7 @@ body {
     background-color: #f0f0f5;
     display: flex;
     justify-content: center;
-    align-items: flex-start;  /* Coloca o conteúdo no topo */
+    align-items: flex-start;
     height: 100vh;
     overflow: hidden;  /* Evita rolagem adicional */
     margin: 0;
@@ -56,6 +56,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 80px;  /* Deixa espaço para o footer */
+    overflow-wrap: break-word;
 }
 
 .chat-footer {
@@ -66,12 +68,12 @@ body {
     border-radius: 0 0 8px 8px;
     border-top: 2px solid #f0f0f5;
     gap: 8px;
-    position: sticky;
+    position: fixed;  /* Fixa o footer na parte inferior */
     bottom: 0;
-    left: 0;
     width: 100%;
     background: white;
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
 }
 
 #user-input {
@@ -162,17 +164,17 @@ body {
     }
 
     .chat-box {
-        padding: 10px; /* Menos padding para usar mais espaço na tela */
-        margin-bottom: 80px;  /* Espaço para o campo de input, para não cobrir o teclado */
+        margin-bottom: 80px;  /* Deixa espaço suficiente para o footer */
     }
 
     .chat-footer {
-        padding: 10px; /* Mais padding no footer para garantir a usabilidade */
+        padding: 10px;
     }
 
     #user-input {
         font-size: 16px;  /* Tamanho do texto do input no celular */
         padding: 10px;  /* Maior área clicável */
+        margin-bottom: 8px;  /* Evita sobrepor o campo */
     }
 
     #send-button {
