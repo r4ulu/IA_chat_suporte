@@ -19,7 +19,7 @@ body {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 100%; /* Ajustando para ocupar toda a altura */
+    height: 80vh; /* Limitar a altura da caixa do chat */
     display: flex;
     flex-direction: column;
     border-radius: 8px;
@@ -49,9 +49,9 @@ body {
 }
 
 .chat-box {
-    flex-grow: 1;
+    flex-grow: 1;  /* A área das mensagens vai crescer para ocupar o espaço restante */
     padding: 16px;
-    overflow-y: auto;
+    overflow-y: auto;  /* Torna a área de mensagens rolável */
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
@@ -66,8 +66,6 @@ body {
     border-radius: 0 0 8px 8px;
     border-top: 2px solid #f0f0f5;
     gap: 8px;
-    position: sticky;
-    bottom: 0;
 }
 
 #user-input {
@@ -153,17 +151,15 @@ body {
 /* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
     .chat-container {
-        height: 100%; /* Ocupa a tela inteira */
+        height: 90vh; /* Ajustando para usar 90% da altura da tela */
         width: 95%;
     }
 
-    .chat-footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+    .chat-header select {
+        font-size: 12px;
+        padding: 6px;
     }
 
-    /* Ajustando os campos de entrada e botão */
     #user-input {
         font-size: 14px;
     }
@@ -171,10 +167,5 @@ body {
     #send-button {
         font-size: 14px;
         padding: 10px 16px;
-    }
-
-    .chat-header select {
-        font-size: 12px;
-        padding: 6px;
     }
 }
