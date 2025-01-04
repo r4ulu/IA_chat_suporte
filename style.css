@@ -18,7 +18,7 @@ body {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 80vh;
+    height: 100vh; /* Ajustado para ocupar a tela inteira no celular */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -148,25 +148,22 @@ body {
     }
 }
 
-/* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
     .chat-container {
-        height: 90vh;
-        width: 95%;
+        height: 100vh; /* Ocupa 100% da altura da tela */
+        width: 100%;
+        max-width: none; /* Remove o limite de largura */
     }
 
-    /* Ajustando os campos de entrada e botão */
+    .chat-header {
+        padding: 10px; /* Ajuste no padding */
+    }
+
+    .chat-footer {
+        padding: 10px; /* Ajuste no padding */
+    }
+
     #user-input {
-        font-size: 12px;
-    }
-
-    #send-button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .chat-header select {
-        font-size: 12px;
-        padding: 6px;
+        font-size: 16px; /* Aumenta o tamanho da fonte no celular */
     }
 }

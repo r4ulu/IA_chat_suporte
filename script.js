@@ -39,6 +39,9 @@ function enviarPergunta() {
 
         // Exibir a resposta do servidor no chat
         exibirMensagem(data.resposta, 'bot');
+        
+        // Limpar o campo de texto após o envio
+        document.getElementById('user-input').value = '';
     })
     .catch(error => {
         // Esconder o spinner de carregamento em caso de erro
