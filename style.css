@@ -12,18 +12,20 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Garante que a rolagem do corpo seja controlada */
 }
 
 .chat-container {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    height: 100vh; /* Ajustado para ocupar a tela inteira no celular */
+    height: 80vh;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .chat-header {
@@ -56,6 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 56px; /* Ajuste para evitar que a área de digitação seja coberta */
 }
 
 .chat-footer {
@@ -66,6 +69,9 @@ body {
     border-radius: 0 0 8px 8px;
     border-top: 2px solid #f0f0f5;
     gap: 8px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #user-input {
@@ -148,22 +154,15 @@ body {
     }
 }
 
+/* Ajustes para telas menores */
 @media (max-width: 600px) {
     .chat-container {
-        height: 100vh; /* Ocupa 100% da altura da tela */
-        width: 100%;
-        max-width: none; /* Remove o limite de largura */
+        height: 90vh;
+        width: 95%;
     }
-
-    .chat-header {
-        padding: 10px; /* Ajuste no padding */
-    }
-
-    .chat-footer {
-        padding: 10px; /* Ajuste no padding */
-    }
-
-    #user-input {
-        font-size: 16px; /* Aumenta o tamanho da fonte no celular */
+    
+    /* Ajusta o tamanho da área de digitação */
+    .chat-box {
+        margin-bottom: 100px; /* Aumenta a área disponível para a caixa de texto */
     }
 }
