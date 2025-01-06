@@ -22,7 +22,7 @@ function enviarPergunta() {
     document.getElementById('loading-spinner').style.display = 'block';
 
     // Enviar a pergunta e o CMS para o servidor
-    fetch('https://28f1-2804-14c-1ad-2319-7df8-7aad-686-2974.ngrok-free.app/ask', {
+    fetch('https://7283-2804-14c-1ad-2319-7df8-7aad-686-2974.ngrok-free.app/ask', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
