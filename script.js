@@ -6,11 +6,17 @@ document.getElementById('user-input').addEventListener('keypress', function(e) {
     }
 });
 
-function enviarPergunta() {
+async function enviarPergunta() {
     const pergunta = document.getElementById('user-input').value;
     const cms = document.getElementById('cms-select').value; // Obter o CMS selecionado
     
     if (pergunta.trim() === '') {
+        // Adiciona animação de vibração se o campo estiver vazio
+        document.getElementById('user-input').classList.add('vibrate');
+        setTimeout(() => {
+            document.getElementById('user-input').classList.remove('vibrate');
+        }, 300);
+
         alert('Por favor, digite uma pergunta!');
         return;
     }
@@ -18,36 +24,46 @@ function enviarPergunta() {
     // Exibir a pergunta no chat
     exibirMensagem(pergunta, 'user');
 
+    // Limpar o campo de entrada
+    document.getElementById('user-input').value = '';
+
     // Mostrar o spinner de carregamento
     document.getElementById('loading-spinner').style.display = 'block';
 
-    // Enviar a pergunta e o CMS para o servidor
-    fetch('https://7283-2804-14c-1ad-2319-7df8-7aad-686-2974.ngrok-free.app/ask', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            question: pergunta,
-            cms: cms
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Esconder o spinner de carregamento
-        document.getElementById('loading-spinner').style.display = 'none';
+    // Adiciona animação de vibração no botão de envio
+    document.getElementById('send-button').classList.add('vibrate');
+    setTimeout(() => {
+        document.getElementById('send-button').classList.remove('vibrate');
+    }, 300);
 
-        // Exibir a resposta do servidor no chat
+    try {
+        // Enviar a requisição para o servidor
+        const response = await fetch('http://localhost:3000/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: pergunta, cms: cms })
+        });
+
+        // Verifica se a resposta foi bem-sucedida
+        if (!response.ok) {
+            throw new Error('Erro na requisição');
+        }
+
+        // Processa a resposta
+        const data = await response.json();
+       // console.log('Resposta:', data);
+
+        // Exibe a resposta do bot no chat
         exibirMensagem(data.resposta, 'bot');
         
-        // Limpar o campo de texto após o envio
-        document.getElementById('user-input').value = '';
-    })
-    .catch(error => {
-        // Esconder o spinner de carregamento em caso de erro
+    } catch (error) {
+        console.error('Erro:', error);
+    } finally {
+        // Oculta o loading spinner após a requisição
         document.getElementById('loading-spinner').style.display = 'none';
-        console.error('Erro ao enviar a pergunta:', error);
-    });
+    }
 }
 
 function exibirMensagem(message, sender) {
@@ -55,6 +71,14 @@ function exibirMensagem(message, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add(sender);
     messageElement.textContent = message;
+
+    // Se a mensagem for do usuário, aplica a animação de fade-out após 3 segundos
+    if (sender === 'user') {
+        setTimeout(() => {
+            messageElement.classList.add('fade-out');
+        }, 3000); // Tempo para desaparecer a mensagem do usuário
+    }
+
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight; // Rolagem automática
 }
