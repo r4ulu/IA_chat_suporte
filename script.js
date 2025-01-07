@@ -38,7 +38,7 @@ async function enviarPergunta() {
 
     try {
         // Enviar a requisição para o servidor
-        const response = await fetch('http://localhost:3000/ask', {
+        const response = await fetch('https://wry-giddy-bug.glitch.me/ask', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
