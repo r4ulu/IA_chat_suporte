@@ -158,8 +158,17 @@ body {
 
 @media (max-width: 600px) {
     .chat-container {
+        position: fixed; /* Fixa o chat na tela */
+        top: 0; /* Alinha no topo */
+        left: 0; /* Alinha na esquerda */
         height: calc(100vh - 20px); 
         max-width: 100%;
+        border-radius: 0; /* Remove bordas arredondadas */
+        overflow: hidden; /* Evita que o conteúdo transborde */
+    }
+
+    .chat-box {
+        overflow-y: auto; /* Permite rolagem interna para mensagens longas */
     }
 
     #user-input {
