@@ -180,6 +180,10 @@ body {
         padding: 6px 12px;
     }
 
+    .chat-header {
+        border-radius: 0px;
+    }
+
     .chat-header select {
         font-size: 12px;
         padding: 6px;
