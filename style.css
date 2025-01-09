@@ -161,7 +161,7 @@ body {
         position: fixed; /* Fixa o chat na tela */
         top: 0; /* Alinha no topo */
         left: 0; /* Alinha na esquerda */
-        height: 80vh; 
+        height: 87vh; 
         max-width: 100%;
         border-radius: 0; /* Remove bordas arredondadas */
         overflow: hidden; /* Evita que o conteúdo transborde */
