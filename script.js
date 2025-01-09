@@ -70,7 +70,7 @@ function exibirMensagem(message, sender) {
     const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
     messageElement.classList.add(sender);
-    messageElement.textContent = message;
+    messageElement.innerHTML = message;
 
     // Se a mensagem for do usuário, aplica a animação de fade-out após 3 segundos
     if (sender === 'user') {
